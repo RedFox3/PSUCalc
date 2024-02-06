@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор мощности блока питания</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Калькулятор мощности БП</h1>
+        </header>
+        <form id="power-supply-calculator">
+            <section class="component">
+                <header>
+                    <h2><img src="img/cpu.webp" alt="CPU Icon" class="icon"> Процессор</h2>
+                </header>
+                <div class="options">
+                    <label for="cpu-manufacturer">Производитель</label>
+                    <select id="cpu-manufacturer" name="cpu-manufacturer">
+                        <option>Выбрать</option>
+                    </select>
+
+                    <label for="cpu-socket">Сокет</label>
+                    <select id="cpu-socket" name="cpu-socket">
+                        <option>Выбрать</option>
+                    </select>
+
+                    <label for="cpu-model">Модель</label>
+                    <select id="cpu-model" name="cpu-model">
+                        <option>Выбрать</option>
+                    </select>
+
+                    <label for="cpu-turbo">Разгон</label>
+                    <select id="cpu-turbo" name="cpu-turbo">
+                        <option>Выбрать</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="component">
+                <header>
+                    <h2><img src="img/gpu.webp" alt="GPU Icon" class="icon"> Видеокарта</h2>
+                </header>
+                <div class="options">
+                    <label for="gpu-quantity">Количество</label>
+                    <select id="gpu-quantity" name="gpu-quantity">
+                        <option>1x</option>
+                    </select>
+
+                    <label for="gpu-manufacturer">Производитель</label>
+                    <select id="gpu-manufacturer" name="gpu-manufacturer">
+                        <option>Выбрать</option>
+                    </select>
+
+                    <label for="gpu-model">Модель</label>
+                    <select id="gpu-model" name="gpu-model">
+                        <option>Выбрать</option>
+                    </select>
+
+                    <label for="gpu-turbo">Разгон</label>
+                    <select id="gpu-turbo" name="gpu-turbo">
+                        <option>Выбрать</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="component">
+                <header>
+                    <h2><img src="img/mbo.webp" alt="MBO Icon" class="icon"> Система</h2>
+                </header>
+                <div class="options">
+                    <label for="sata">S-ATA</label>
+                    <input id="sata" name="sata" type="number" min="0" value="0">
+
+                    <label for="pata">P-ATA</label>
+                    <input id="pata" name="pata" type="number" min="0" value="0">
+
+                    <label for="ram">RAM</label>
+                    <input id="ram" name="ram" type="number" min="0" value="0">
+
+                    <label for="m2-ssd">M.2 SSD</label>
+                    <input id="m2-ssd" name="m2-ssd" type="number" min="0" value="0">
+                </div>
+            </section>
+
+            <section class="component">
+                <header>
+                    <h2><img src="img/cooler.webp" alt="Cooler Icon" class="icon"> Охлаждение</h2>
+                </header>
+                <div class="options">
+                    <label for="cooling-fans">Вентиляторы</label>
+                    <input id="cooling-fans" name="cooling-fans" type="number" min="0" value="0">
+
+                    <label for="water-cooling">Водяное охлаждение</label>
+                    <select id="water-cooling" name="water-cooling">
+                        <option value="no">Нет</option>
+                        <option value="yes">Да</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="component">
+                <div class="options">
+                    <label for="usb">Использование USB 3.2 Gen. 2 для передачи энергии</label>
+                    <div class="usb-options">
+                        <input id="usb-yes" name="usb" type="radio" value="yes">
+                        <label for="usb-yes">Да</label>
+                        <input id="usb-no" name="usb" type="radio" value="no" checked>
+                        <label for="usb-no">Нет</label>
+                    </div>
+                </div>
+            </section>
+
+            <div class="calculate-button">
+                <button type="submit">Рассчитать</button>
+            </div>
+        </form>
+
+        <!-- Непосредственно после формы или в любом другом месте, где вы хотите отобразить результат -->
+        <div id="result" class="result-display">
+            Рекомендуемая мощность блока питания будет отображена здесь.
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

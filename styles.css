@@ -1,0 +1,109 @@
+/* Основные стили */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Стилизация секций компонентов */
+.component {
+    background: #333;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.component header h2 {
+    margin-bottom: 20px;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Стилизация элементов формы */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+select, input[type="number"], input[type="radio"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #555;
+    background-color: #222;
+    color: #fff;
+    border-radius: 4px;
+}
+
+input[type="radio"] {
+    width: auto;
+    margin-right: 5px;
+}
+
+.usb-options, .calculate-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Стилизация кнопки 'Рассчитать' */
+.calculate-button button {
+    background-color: #ff9500;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.calculate-button button:hover {
+    background-color: #ffa500;
+}
+
+.result-display {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #222; /* Темный фон для контраста */
+    color: #fff; /* Белый текст */
+    border: 1px solid #555; /* Слегка выделяющаяся рамка */
+    border-radius: 4px;
+    text-align: center; /* Текст по центру */
+}
+
+.icon {
+    width: 100px; /* или любой другой размер */
+    height: auto;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .options {
+        flex-direction: column;
+    }
+    
+    select, input[type="number"] {
+        width: auto;
+    }
+}
