@@ -4,26 +4,79 @@
     <meta charset="UTF-8">
     <title>Калькулятор мощности блока питания</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
 </head>
 <body>
-    <script>
-        let isAlertShow = sessionStorage.getItem('isAlertShow');
-        if(!isAlertShow)
-        {
-            let name = prompt('Введите ваше имя');
-            alert("Добро пожаловать, " + name);
-            sessionStorage.setItem('isAlertShow', true);
-        }
-    </script>
     <div class="container">
-        <div id="clock" class="clock"></div>
         <header>
             <h1>Калькулятор мощности БП</h1>
         </header>
-        <form id="power-supply-calculator">
+        <div id="result" class="result-display">
+            Рекомендуемая мощность блока питания будет отображена здесь.
+        </div>
+        <form id="power-supply-store">
+            <section class="component">
+                <header>
+                    <h1 id="best-straight" style="color: gold; display: none;">
+                        ЛУЧШИЙ ВЫБОР!!!
+                    </h1>
+                    <h2>STRAIGHT POWER 12</h2>
+                    <div>
+                        <img src="img/straight.jpg">
+                        750W
+                    </div>
+                </header>
+            </section>
+            <section class="component">
+                <header>
+                    <h1 id="best-pure" style="color: gold; display: none;">
+                        ЛУЧШИЙ ВЫБОР!!!
+                    </h1>
+                    <h2>PURE POWER 11</h2>
+                    <div>
+                        <img src="img/pure.jpg">
+                        500W
+                    </div>
+                </header>
+            </section>
+            <section class="component">
+                <header>
+                    <h1 id="best-sfx" style="color: gold; display: none;">
+                        ЛУЧШИЙ ВЫБОР!!!
+                    </h1>
+                    <h2>SFX POWER</h2>
+                    <div>
+                        <img src="img/sfx.jpg">
+                        300W
+                    </div>
+                </header>
+            </section>
+        </form>
+
+        <!-- Кнопка для открытия модального окна -->
+        <button id="openModalBtn">Создать заказ</button>
+
+        <!-- Модальное окно -->
+        <div id="orderModal" class="modal">
+            <div class="modal-content">
+                <span class="closeBtn">&times;</span>
+                <h2>Форма создания заказа</h2>
+                <form id="orderForm">
+                    <!-- Поля формы -->
+                    <label for="productName">Название продукта:</label>
+                    <input type="text" id="productName" name="productName" required>
+
+                    <label for="quantity">Количество:</label>
+                    <input type="number" id="quantity" name="quantity" required min="1">
+
+                    <label for="customerName">Имя клиента:</label>
+                    <input type="text" id="customerName" name="customerName" required>
+
+                    <button type="submit">Отправить заказ</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- <form id="power-supply-calculator">
             <section class="component">
                 <header>
                     <h2><img src="img/cpu.webp" alt="CPU Icon" class="icon"> Процессор</h2>
@@ -31,7 +84,7 @@
                 <div class="options">
                     <label for="cpu">Модель</label>
                     <select id="cpu" name="cpu">
-                        <option value="-1">Выбрать</option>
+                        <option>Выбрать</option>
                     </select>
                 </div>
             </section>
@@ -43,7 +96,7 @@
                 <div class="options">
                     <label for="gpu">Модель</label>
                     <select id="gpu" name="gpu">
-                        <option value="-1">Выбрать</option>
+                        <option>Выбрать</option>
                     </select>
                 </div>
             </section>
@@ -85,19 +138,9 @@
                     </div>
                 </div>
             </section>
-
-            <div class="calculate-button">
-                <button type="submit">Рассчитать</button>
-            </div>
-        </form>
-
-        <div id="error-message" style="color: red; display: none;">
-            Пожалуйста, заполните все поля.
-        </div>
+        </form> -->
     </div>
 
-    <!-- Настройки Firebase -->
-    <script src="firebase-config.js"></script>
-    <script src="script.js"></script>
+    <script src="store.js"></script>
 </body>
 </html>

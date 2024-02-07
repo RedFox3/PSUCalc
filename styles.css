@@ -19,6 +19,16 @@ header h1 {
     margin-bottom: 40px;
 }
 
+.clock {
+    position: fixed; /* Или absolute, в зависимости от вашей разметки */
+    top: 0;
+    right: 0;
+    padding: 10px;
+    background-color: #f9f9f9; /* Цвет фона */
+    color: #333; /* Цвет текста */
+    font-size: 16px;
+}
+
 /* Стилизация секций компонентов */
 .component {
     background: #333;
@@ -95,6 +105,42 @@ input[type="radio"] {
     height: auto;
     vertical-align: middle;
     margin-right: 10px;
+}
+
+/* Стилизация модального окна */
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed; /* Остается на месте при прокрутке */
+    z-index: 1; /* Поверх всего */
+    left: 0;
+    top: 0;
+    width: 100%; /* Полная ширина */
+    height: 100%; /* Полная высота */
+    overflow: auto; /* Включить прокрутку, если необходимо */
+    background-color: rgba(0,0,0,0.4); /* Цвет фона */
+}
+
+.modal-content {
+    background-color: #000;
+    margin: 15% auto; /* 15% от верха и по центру */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Можно изменить на нужную ширину */
+}
+
+/* Кнопка закрытия */
+.closeBtn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* Адаптивность */
